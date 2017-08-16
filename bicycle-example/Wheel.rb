@@ -3,9 +3,9 @@ require_relative './Gear.rb'
 class Wheel
   attr_reader :rim, :tire
 
-  def initialize(rim, tire)
-    @rim = rim
-    @tire = tire
+  def initialize(arguments)
+    @rim = arguments[:rim]
+    @tire = arguments[:tire]
   end
 
   def diameter
@@ -17,7 +17,7 @@ class Wheel
   end
 end
 
-wheel = Wheel.new(26, 1.5)
+wheel = Wheel.new({ rim: 26, tire: 1.5 })
 puts wheel.circumference
 
 puts Gear.new({ chainring: 52, cog: 11, wheel: wheel }).gear_inches
